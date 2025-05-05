@@ -29,7 +29,8 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Vision in Action: Learning Active Perception from Human Demonstrations</h1>
+          <h1 class="title is-1 publication-title" style="color: #d75151;">Vision in Action</h1>
+          <h2 class="title">Learning Active Perception from Human Demonstrations</h2>
 
           <div class="columns is-centered">
             <div class="column">
@@ -268,11 +269,11 @@
       <div class="column">
         <div class="content has-text-justified">
           <p>
-            We decouple the user's view from the robot's view using a point cloud in the world frame, and we <b>render</b> stereo RGB images based on the <b>user's latest head pose</b> (the <span style="color: #00aa00;">green</span> loop).
+            We decouple the user's view from the robot's view using a point cloud in the world frame, and we <b>render</b> stereo RGB images based on the <b>user's latest head pose</b> (the <span style="color: #93c47d;">green</span> loop).
             This allows the user's <b>viewpoint</b> to update <b>instantly</b> in response to user's head movements (via rendering), without waiting for the robot's camera to physically match the requested viewpoint—a critical factor for reducing motion sickness.
           </p>
           <p>
-            Asynchronously, (the <span style="color: #ff0000;">red</span> loop) we update the robot's head and arm pose using user's head pose and teaching arms' joint positions; and update the point cloud using the robot's new observations.
+            Asynchronously, (the <span style="color: #cc0000;">red</span> loop) we update the robot's head and arm pose using user's head pose and teaching arms' joint positions; and update the point cloud using the robot's new observations.
           </p>
         </div>
       </div>
