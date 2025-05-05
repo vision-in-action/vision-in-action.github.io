@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Vision in Action: Learning Active Perception from Human Demonstrations">
+  <meta name="keywords" content="Active Perception, Bimanual Manipulation, Imitation Learning, Teleoperation Systems">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vision in Action: Learning Active Perception from Human Demonstrations</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Vision in Action: Learning Active Perception from Human Demonstrations">
+  <meta property="og:description" content="Vision in Action: Learning Active Perception from Human Demonstrations">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vision-in-action.github.io">
+  <meta property="og:image" content="https://vision-in-action.github.io/images/TODO-og-image.jpg">
+
+  <link rel="icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Vision in Action: Learning Active Perception from Human Demonstrations</h1>
+
+          <div class="columns is-centered">
+            <div class="column">
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="https://haoyu-x.github.io">Haoyu Xiong</a><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://xxm19.github.io">Xiaomeng Xu</a><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://jimmyyhwu.github.io">Jimmy Wu</a><sup>1,2</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://yifan-hou.github.io">Yifan Hou</a><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://web.stanford.edu/~bohg/">Jeannette Bohg</a><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://shurans.github.io/">Shuran Song</a><sup>1</sup>
+                </span>
+              </div>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><sup>1</sup>Stanford University</span>
+                &nbsp;&nbsp;
+                <span class="author-block"><sup>2</sup>Princeton University</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="TODO.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/TODO"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="TODO"
+                   class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fas fa-book"></i>
+                    </span>
+                    <span>Tutorial</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="TODO"
+                   class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fas fa-database"></i>
+                    </span>
+                    <span>Datasets</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/TODO"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Hardware Code</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/TODO"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>ML Code</span>
+                  </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="TODO"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns">
+      <div class="column">
+        <h2 class="title">The <em>Vision in Action</em> (ViA) system</h2>
+        <div class="content has-text-justified">
+          <p>
+            ViA uses a single active head camera for policy learning.
+            Our 6-DoF robot neck enables human-like capabilities, such as, searching, peeking, looking closer, and bending over.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-one-third">
+        <video data-src="videos/teleop/IMG_4152-4x.mp4" controls autoplay loop muted playsinline>
+          Your browser does not support the video tag.
+        </video>
+        <p>Cup arrangement with active viewpoint switching</p>
+      </div>
+      <div class="column is-one-third">
+        <video data-src="videos/teleop/IMG_4161-4x.mp4" controls autoplay loop muted playsinline>
+          Your browser does not support the video tag.
+        </video>
+        <p>Object retrieval with interactive perception</p>
+      </div>
+      <div class="column is-one-third">
+        <video data-src="videos/teleop/IMG_4175-4x.mp4" controls autoplay loop muted playsinline>
+          Your browser does not support the video tag.
+        </video>
+        <p>Searching & bimanual coordination and precise alignment</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns">
+      <div class="column">
+        <h2 class="title">Why do we need <em>Active Perception</em>? a.k.a. <em>Robot Neck</em>?</h2>
+        <div class="content has-text-justified">
+          <p>
+            Wrist camera or fixed camera struggle with visual occlusion in cluttered environments.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column has-text-centered">
+        <!-- <img src="images/TODO.jpg"> -->
+        <img src="https://picsum.photos/300/200">
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content has-text-justified">
+          <p>
+            Humans naturally shift their gaze to guide attention.
+            However, most of today's data collection systems neglect to capture rich human perceptual behaviors, such as searching, tracking, and focusing.
+            This observation mismatch—between <em><b>what the human sees</b></em> and <em><b>what the robot learns from</b></em>—hinders the learning of effective policies.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns">
+      <div class="column">
+        <h2 class="title">How do we collect the data?</h2>
+        <div class="content has-text-justified">
+          <p>
+            We developed a teleoperation interface that allows human to <em>see what robot sees</em>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column has-text-centered">
+        <!-- <img src="images/TODO.jpg"> -->
+        <img src="https://picsum.photos/300/200">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns">
+      <div class="column">
+        <h2 class="title">What's new?</h2>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column is-two-thirds">
+        <div class="content has-text-justified">
+          <p>
+            Direct camera teleoperation approaches often introduce motion sickness, 😵‍💫🥴🤢 due to motion-to-photon latency (also known as end-to-end latency in VR)—the delay between a user's head movement and the corresponding visual update on the VR display.
+          </p>
+          <p>
+            While today's consumer VR headsets achieve acceptable latency for applications like games, robot teleoperation introduces an additional challenge—robot control latency (which can come from your controller code, CAN communication, motor latency, etc.): when users move their heads to teleoperate the robot's physical camera, there is a delay between receiving and executing the action command, causing the robot's camera pose to lag behind.
+          </p>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <!-- <img src="images/TODO.jpg"> -->
+        <img src="https://picsum.photos/200/300">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns">
+      <div class="column">
+        <h2 class="title">Our solution—Async Teleop: Decoupled view rendering & Async updating</h2>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column has-text-centered">
+        <!-- <img src="images/TODO.jpg"> -->
+        <img src="https://picsum.photos/300/200">
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content has-text-justified">
+          <p>
+            We decouple the user's view from the robot's view using a point cloud in the world frame, and we <b>render</b> stereo RGB images based on the <b>user's latest head pose</b> (the <span style="color: #00aa00;">green</span> loop).
+            This allows the user's <b>viewpoint</b> to update <b>instantly</b> in response to user's head movements (via rendering), without waiting for the robot's camera to physically match the requested viewpoint—a critical factor for reducing motion sickness.
+          </p>
+          <p>
+            Asynchronously, (the <span style="color: #ff0000;">red</span> loop) we update the robot's head and arm pose using user's head pose and teaching arms' joint positions; and update the point cloud using the robot's new observations.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-one-third">
+        <!-- <img src="images/TODO.jpg"> -->
+        <img src="https://picsum.photos/300/200">
+        <p>Placeholder</p>
+      </div>
+      <div class="column is-one-third">
+        <!-- <img src="images/TODO.jpg"> -->
+        <img src="https://picsum.photos/300/200">
+        <p>Placeholder</p>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column is-one-fifth">
+        <!-- <img src="images/TODO.jpg"> -->
+        <img src="https://picsum.photos/200/300">
+      </div>
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p>
+            Try it now!
+          </p>
+          <p>
+            You need an iPhone (need lidar) (or any camera provides RGB-D and pose tracking) + VisionPro + a computer + a USB cable
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns">
+      <div class="column">
+        <h2 class="title">Can Async Teleop actually reduce motion sickness?</h2>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content has-text-justified">
+          <p>
+            We conducted a user study with 8 participants of varying levels of experience with VR and robot teleoperation.
+            All participants were first-time users of both systems and were unaware of which system corresponded to our proposed design.
+            We recorded the completion time for each demonstration and gathered user feedback through a post-session experience survey.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column has-text-centered">
+        <!-- <img src="images/TODO.jpg"> -->
+        <img src="https://picsum.photos/300/200">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title">Policy Rollout Evaluation</h2>
+        <p>
+          We evaluated our policy on three challenging multi-stage tasks to assess the effectiveness of various camera setups, visual representations.
+        </p>
+      </div>
+    </div>
+    <h3 class="subtitle">Bag Task</h3>
+    <div class="columns is-multiline is-centered has-text-centered">
+      <div class="column is-one-quarter">
+        <video data-src="videos/teleop/IMG_4152-4x.mp4" controls autoplay loop muted playsinline>
+          Your browser does not support the video tag.
+        </video>
+        <p>Unload oven</p>
+      </div>
+      <div class="column is-one-quarter">
+        <video data-src="videos/teleop/IMG_4161-4x.mp4" controls autoplay loop muted playsinline>
+          Your browser does not support the video tag.
+        </video>
+        <p>Set the table</p>
+      </div>
+      <div class="column is-one-quarter">
+        <video data-src="videos/teleop/IMG_4175-4x.mp4" controls autoplay loop muted playsinline>
+          Your browser does not support the video tag.
+        </video>
+        <p>Tidy up kitchen</p>
+      </div>
+      <div class="column is-one-quarter">
+        <video data-src="videos/teleop/IMG_4149-4x.mp4" controls autoplay loop muted playsinline>
+          Your browser does not support the video tag.
+        </video>
+        <p>Fill watering can</p>
+      </div>
+      <div class="column is-one-quarter">
+        <video data-src="videos/teleop/IMG_4135-4x.mp4" controls autoplay loop muted playsinline>
+          Your browser does not support the video tag.
+        </video>
+        <p>Tidy up foyer</p>
+      </div>
+      <div class="column is-one-quarter">
+        <video data-src="videos/teleop/IMG_4037-4x.mp4" controls autoplay loop muted playsinline>
+          Your browser does not support the video tag.
+        </video>
+        <p>Tidy up bedroom</p>
+      </div>
+      <div class="column is-one-quarter">
+        <video data-src="videos/teleop/IMG_4067-4x.mp4" controls autoplay loop muted playsinline>
+          Your browser does not support the video tag.
+        </video>
+        <p>Tidy up bedroom</p>
+      </div>
+      <div class="column is-one-quarter">
+        <video data-src="videos/teleop/IMG_4101-4x.mp4" controls autoplay loop muted playsinline>
+          Your browser does not support the video tag.
+        </video>
+        <p>Enter bathroom</p>
+      </div>
+      <div class="column is-one-quarter">
+        <video data-src="videos/teleop/IMG_4105-4x.mp4" controls autoplay loop muted playsinline>
+          Your browser does not support the video tag.
+        </video>
+        <p>Tidy up countertop</p>
+      </div>
+      <div class="column is-one-quarter">
+        <video data-src="videos/teleop/IMG_4108-4x.mp4" controls autoplay loop muted playsinline>
+          Your browser does not support the video tag.
+        </video>
+        <p>Tidy up countertop</p>
+      </div>
+      <div class="column is-one-quarter">
+        <video data-src="videos/teleop/IMG_4126-4x.mp4" controls autoplay loop muted playsinline>
+          Your browser does not support the video tag.
+        </video>
+        <p>Wipe countertop</p>
+      </div>
+      <div class="column is-one-quarter">
+        <video data-src="videos/teleop/IMG_4129-4x.mp4" controls autoplay loop muted playsinline>
+          Your browser does not support the video tag.
+        </video>
+        <p>Scrub bathtub</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns">
+      <div class="column">
+        <h2 class="title">One more thing...</h2>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content has-text-justified">
+          <p>
+            We are very interested in active perception in mobile manipulation setup for future work.
+            And we decided to open source a simple mobile manipulation hardware with TidyBot++ mobile base.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column has-text-centered">
+        <!-- <img src="images/TODO.jpg"> -->
+        <img src="https://picsum.photos/300/200">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns">
+      <div class="column">
+        <h2 class="title">FAQ</h2>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content has-text-justified">
+          <ol>
+            <li>Why 6-dof neck?</li>
+            <li>Limitation of point cloud rendering?</li>
+            <li>Why using additionally GELLO?</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column has-text-centered">
+        <!-- <img src="images/TODO.jpg"> -->
+        <img src="https://picsum.photos/300/200">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/TODO?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title has-text-centered">Acknowledgments</h2>
+        <p class="has-text-justified">
+          We thank the help from Ge Yang at MIT and Xuxin Cheng at UCSD for their help and discussion of VR teleoperation. We thank Yihuai Gao at Stanford for his help on the ARX robot arm controller SDK.
+          ReaLab helpful discussions.
+          We thank Max Du, Haochen Shi, Austin Patel, Zeyi Liu, Huy Ha, Mengda Xu for their helpful discussions.
+          SVL helpful discussions.
+          Yunfan Jiang,
+          Karen Lab discussions
+          Ken Wang, Yanjie Ze
+          We thank all the volunteers who helped us conduct user study.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{xiong2025vision,
+  title = {Vision in Action: Learning Active Perception from Human Demonstrations},
+  author = {Xiong, Haoyu and Xu, Xiaomeng and Wu, Jimmy and Hou, Yifan and Bohg, Jeannette and Song, Shuran},
+  journal = {arXiv preprint arXiv:TODO},
+  year = {2025}
+}</code></pre>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+          <p>Website template borrowed from <a href="https://nerfies.github.io/">Nerfies</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
