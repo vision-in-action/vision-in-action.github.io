@@ -1,0 +1,919 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Vision in Action: Learning Active Perception from Human Demonstrations</title>
+		<meta charset="utf-8" />
+		 <meta name="viewport" content="width=1000">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="icon" type="image/x-icon" href="./icon.png">
+
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-LS6L6LB7RX"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-LS6L6LB7RX');
+		</script>
+
+		<meta property="og:url"           content="https://vision-in-action.github.io" />
+	    <meta property="og:type"          content="website" />
+	    <meta property="og:title"         content="Vision in Action: Learning Active Perception from Human Demonstrations" />
+	    <script src="./static/js/index.js"></script>
+
+
+
+	</head>
+	<body id="top">
+
+
+		<!-- Main -->
+			<div id="main" style="padding-bottom:1em; padding-top: 5em; width: 60em; max-width: 70em; margin-left: auto; margin-right: auto;">
+					<section id="four">
+
+						<!-- Stanford Logo -->
+
+						<!-- <div class="box alt" style="margin-bottom: 1em;">
+							<div class="row 0% uniform" style="width: 100%; display: flex; justify-content: space-between;">
+								<div class="2u" style="font-size: 1em; line-height: 1.5em; text-align: center; width: 20%">
+									<span class="image fit" style="margin-bottom: 0.5em; margin-top: 0.3em">
+										<img src="images/stanford_logo.png" alt="">
+									</span>
+								</div>
+							</div>
+						</div> -->
+
+
+						<!-- # d75151color: #808080; -->
+						<h1 style="text-align: center; margin-bottom: 0; color: #8C1515; font-size: 240%; font-weight: bold; font-family: 'Arial', sans-serif;">
+							Vision in Action
+						</h1>
+						<h2 style="text-align: center; margin-bottom: 0; white-space: nowrap;  font-size: 150%; font-weight: bold; font-family: 'Arial', sans-serif;">
+							Learning Active Perception from Human Demonstrations
+						</h2>
+
+						<h3 style="text-align: center; margin-top: 0.5em; margin-bottom: -1.5em;">
+							<span style="color: grey">
+								<a href="https://haoyu-x.github.io"><i>Haoyu Xiong</i></a>
+									&nbsp&nbsp <a
+									href="https://xxm19.github.io"><i>Xiaomeng Xu</i></a>
+									&nbsp&nbsp <a
+									href="https://jimmyyhwu.github.io"><i>Jimmy Wu</i></a>
+									&nbsp&nbsp <a
+									href="https://yifan-hou.github.io"><i>Yifan Hou</i></a>
+									&nbsp&nbsp <a
+									href="https://web.stanford.edu/~bohg/"><i>Jeannette Bohg</i></a>
+									&nbsp&nbsp <a
+									href="https://shurans.github.io/"><i>Shuran Song</i></a>
+									<br>
+
+
+							 </p>
+						</h3>
+
+						<!-- Stanford Logo -->
+						<!-- <h4 style="text-align: center; margin-top: -4em; margin-bottom: -2em;"> -->
+							<!-- <image src="./images/Stanford-Logo.png" style="width: 23%;"></image> -->
+
+
+						<!-- </h4> -->
+						<h4 style="text-align: center; margin-bottom: 0.5em;">
+
+							<image src="./stanford_logo.png" style="width: 15%;"></image>
+
+						</h4>
+
+
+						<div style="text-align:center; margin-bottom: 2em;">
+
+
+							<div>
+								<!-- PDF Link. -->
+								<span>
+									<a href="https://arxiv.org/abs/2506.15666" class="button">
+										<span class="icon">
+											<i class="fa fa-file-pdf-o"></i>
+										</span>
+										<span>Paper</span>
+									</a>
+								</span>
+								<!-- video Link. -->
+								<span>
+									<a href="https://youtu.be/sZ7SVi7mI4o" class="button">
+										<span class="icon">
+											<i class="fa fa-youtube-play"></i>
+										</span>
+										<span>Video</span>
+									</a>
+								</span>
+								<!-- Code Link. -->
+								<span>
+									<a href="https://github.com/haoyu-x/vision-in-action" class="button">
+										<span class="icon">
+											<i class="fa fa-github"></i>
+										</span>
+										<span>Code</span>
+									</a>
+								</span>
+								<!-- Hardware Link. -->
+								<span>
+									<a href="https://github.com/haoyu-x/vision-in-action/tree/main/hardware" class="button">
+										<span class="icon">
+											<i class="fa fa-database"></i>
+										</span>
+										<span>Hardware</span>
+									</a>
+								</span>
+								<!-- Twitter Link. -->
+								<span>
+									<a href="" class="button">
+										<span class="icon">
+											<i class="fa fa-twitter"></i>
+										</span>
+										<span>TL;DR</span>
+									</a>
+								</span>
+
+							</div>
+						</div>
+
+						<!-- <div class="box alt" style="margin-bottom: 1em;"> -->
+
+							<!-- <p style="color: grey;">The Vision in Action (ViA) system uses a single active head camera for policy learning.  -->
+							<!-- </p> -->
+
+
+						<!-- <p style="color: black;"> -->
+						<div style="margin-top: 0em; margin-bottom: 0em;">
+							<!-- <h3 style="color: black;">
+							We present ViA, an active perception system for bimanual manipulation.
+							</h3> -->
+
+							<!-- <h3 style="color: black;"> -->
+								<!-- RoboPanoptes is a 9-DoF robot featuring 21 on-body cameras, enabling whole-body dexterity and whole-body vision that allow it to precisely navigate severely occluded cluttered environments and efficiently solve sweeping, stowing and unboxing tasks using its novel manipulation capabilities. -->
+								<!-- The Vision in Action (ViA) system uses a single <i>active</i> head camera for policy learning.  -->
+
+							<!-- <br> -->
+								<!-- <i>Argos Panoptes</i> is a many-eyed giant in Greek mythology, with "panoptes" meaning "all-seeing". Thus <i>RoboPanoptes</i> is the many-eyed, all-seeing robot. -->
+							<!-- </h3> -->
+
+
+
+
+
+
+						<div class="row 50% uniform" style="width: 100%;">
+							<div class="2u" style="font-size: 1em; line-height: 1.5em; text-align: center; width: 33.33%">
+								<span class="image fit">
+									<video controls autoplay loop muted playsinline style="width: 100%; margin-right: 5%;">
+										<source src="videos/corl_cup_highlight.mp4" type="video/mp4">
+									</video>
+								</span>
+							</div>
+
+
+							<div class="2u" style="font-size: 1em; line-height: 1.5em; text-align: center; width: 33.33%">
+								<span class="image fit">
+									<video controls autoplay loop muted playsinline style="width: 100%; margin-right: 5%;">
+										<source src="videos/corl_bag_highlight.mp4" type="video/mp4">
+									</video>
+
+
+								</span>
+							</div>
+
+							<div class="2u" style="font-size: 1em; line-height: 1.5em; text-align: center; width: 33.33%">
+								<span class="image fit">
+									<video controls autoplay loop muted playsinline style="width: 100%; margin-right: 5%;">
+										<source src="videos/corl_pot_highlight.mp4" type="video/mp4">
+									</video>
+
+
+								</span>
+
+							</div>
+
+							<p style="color: grey; margin-bottom: -1em;">
+								<!-- We present Vision in Action (ViA), an active perception system for bimanual robot manipulation.  -->
+								<!-- ViA learns task-relevant active perceptual strategies (e.g., searching, tracking, and focusing) from human demonstrations.  -->
+								<!-- On the hardware side, ViA employs a simple yet effective 6-DoF robotic neck to enable flexible, human-like head movements.  -->
+
+								<!-- To capture human active perception strategies, we design a VR-based teleoperation interface that creates a shared observation space between the robot and the human operator.  -->
+								<!-- To mitigate VR motion sickness caused by latency in the robot's physical movements, the interface uses an intermediate 3D scene representation, enabling real-time view rendering on the operator side while asynchronously updating the scene with the robot's latest observations.  -->
+
+								<!-- Together, these design elements enable the learning of robust visuomotor policies for three complex, multi-stage bimanual manipulation tasks involving visual occlusions, significantly outperforming baseline systems. -->
+								<span style="font-weight: bold; color: black;"><i>Abstract: </i></span>
+								We present Vision in Action (ViA), an active perception system for
+								bimanual robot manipulation. ViA learns task-relevant active perceptual strategies (e.g., searching, tracking, and focusing) directly from human demonstrations.
+								On the hardware side, ViA employs a simple yet effective 6-DoF robotic neck to
+								enable flexible, human-like head movements. To capture human active perception strategies, we design a VR-based teleoperation interface that creates a shared
+								observation space between the robot and the human operator. To mitigate VR motion sickness caused by latency in the robot’s physical movements, the interface
+								uses an intermediate 3D scene representation, enabling real-time view rendering
+								on the operator side while asynchronously updating the scene with the robot’s latest observations. Together, these design elements enable the learning of robust
+								visuomotor policies for three complex, multi-stage bimanual manipulation tasks
+								involving visual occlusions, significantly outperforming baseline systems.
+							</p>
+
+
+							<!-- <div class="row 50% uniform" style="width: 100%; color: grey;">
+								<div class="2u" style="font-size: 1em; margin-top: -1em; line-height: 1.5em; text-align: center; width: 33.33%">
+									Cup arrangement with active viewpoint switching
+								</div>
+
+								<div class="2u" style="font-size: 1em; margin-top: -1em; line-height: 1.5em; text-align: center; width: 33.33%">
+									Object retrieval with interactive perception
+								</div>
+								<div class="2u" style="font-size: 1em; margin-top: -1em; line-height: 1.5em; text-align: center; width: 33.33%">
+									Searching & bimanual coordination and precise alignment
+								</div>
+							</div> -->
+<!--
+
+							<p style="color: grey;">
+
+								ViA uses a single <i>active</i> head camera for policy learning.
+							</p> -->
+<!--
+							<p style="color: grey;">
+
+								We present Vision in Action (ViA), an active perception system for bimanual robot manipulation. ViA learns task-relevant active perceptual strategies (e.g., searching, tracking, and focusing) directly from human demonstrations.
+
+							</p> -->
+
+
+
+						</div>
+						<hr>
+
+
+
+
+
+						<h2 style="color: black;">Why do we need Active Perception (a.k.a Robot Neck) ?
+						</h2>
+						<!-- <h2 style="color: black;">Why active perception? Why should robot have a -->
+							<!-- <span style="font-weight: bold; color: black;"><i>neck</i></span>  -->
+							<!-- ? </h2> -->
+
+
+
+						<!-- <div class="row 50% uniform" style="width: 100%;">
+							<div class="2u" style="font-size: 1em; line-height: 1.5em; text-align: center; width: 50%">
+								<span class="image fit">
+									<video data-src="videos/insert_demo.mp4" controls autoplay loop muted playsinline style="width: 100%; margin-right: 5%;">
+									</video>
+								</span>
+							</div>
+
+
+							<div class="2u" style="font-size: 1em; line-height: 1.5em; text-align: center; width: 50%">
+								<span class="image fit">
+									<video data-src="videos/printer_demo.mp4" controls autoplay loop muted playsinline style="width: 100%; margin-right: 5%;">
+									</video>
+								</span>
+
+						</div>
+						 -->
+						<div class="row" style="margin-bottom: 0em;">
+							<p style="color: black; flex: 2; margin-bottom: 0em;">
+								<span style="font-weight: bold; color: black;">
+									Visual occlusion presents a significant challenge in everyday manipulation tasks.</span>
+							</p>
+							<p style="color: grey;">
+
+								Perception is inherently active — we purposefully adjust our viewpoint to capture task-relevant visual information.
+							</br>
+								In contrast, relying on a static view is often ineffective.
+							</p>
+						</div>
+
+
+						<div class="row" style="margin-bottom: 0em;">
+							<div class="12u$ 12u$(xsmall)" style="text-align: center;">
+								<img src="./images/teaser_v2.5.png" style="width: 50%; height: auto;">
+							</div>
+
+
+							<p style="color: grey; margin-bottom: -1em;">
+								While robot wrist cameras can move with the arms, their motion is primarily dictated by manipulation needs, rather than being driven by perceptual objectives.
+								The video below shows a failure case of a bimanual setup without a "robot neck".
+
+								<!-- This limitation becomes problematic in visually occluded environments, such as retrieving objects from a deformable bag.							 -->
+
+							</p>
+						</div>
+
+
+						<div class="box alt" style="margin-top: -0.5em; margin-bottom: 0em;">
+							<div class="row 50% uniform" style="width: 100%;">
+							  <div style="font-size: 1em; line-height: 1.5em; text-align: center; width: 100%;">
+								<video data-src="videos/corl_cup_occlusion.mp4" controls autoplay loop muted playsinline style="max-width: 100%; width: 100%; margin: 0 auto; display: block;">
+								</video>
+							  </div>
+							</div>
+
+
+
+								<p style="color: grey; margin-top: 1em">
+
+									<!-- In cluttered environments, visual occlusion poses a significant challenge. -->
+
+
+									The right wrist camera [R] is obstructed by the upper shelf tier, leading to insufficient visual cues for grasping.
+
+									The chest camera [C] also fails to capture task-relevant information due to its fixed viewpoint, even when equipped with a fisheye lens.
+									<!-- <br> -->
+
+
+								</p>
+
+
+							<hr>
+						</div>
+
+
+
+
+
+					<div>
+
+						<h2 style="color: black; margin-top: 1em;">
+						Seeing what the robot sees
+						</h2>
+
+
+						<p style="color: grey; margin-bottom: 0em;">
+							Many of today's data collection systems (e.g., the bimanual setup shown above) do not capture the rich perceptual behaviors of humans.
+							This observation mismatch—between <span style="font-weight: bold; color: black;">what the human sees</span> and
+							<span style="font-weight: bold; color: black;">what the robot learns from</span>—hinders the learning of effective policies.
+							<!-- <br>
+							How do we collect the data? 👇 -->
+
+						</p>
+
+
+						<!-- Flex container: paragraph on left, image on right -->
+						<div style="display: flex; align-items: flex-start; gap: 1em;">
+						  <p style="color: grey; flex: 2;">
+							VR teleoperation offers an intuitive way to collect data that captures human active perceptual behaviors.
+
+							However, direct camera teleoperation approaches often introduce motion sickness 😵‍💫🥴🤢,
+							due to <span style="font-weight: bold; color: black;">motion-to-photon latency</span>
+							— the delay between a user's head movement and the corresponding visual update
+							on the VR display.
+							<!-- </br> -->
+							<!-- While today's consumer VR headsets achieve acceptable latency for applications like games,  -->
+							Additionally, robot teleoperation introduces
+							<span style="font-weight: bold; color: black;">control latency</span>,
+							which can come from the controller
+							code, CAN communication, motor latency, etc.
+							When users move their heads to teleoperate the robot's physical
+							camera, there is a delay between receiving and executing the action command, causing the robot's camera pose to lag behind.
+							The resulting mismatch in viewpoints between the human and robot leads to motion sickness.
+
+							<!-- </p> -->
+
+						  <div style="flex: 1;">
+							<img src="./images/prior_teleop.png" style="max-width: 80%; height: auto;" class="prior-teleop-img">
+						  </div>
+						</div>
+
+
+
+						<p style="color: black; flex: 2; margin-top: -1em;">
+							<span style="font-weight: bold; color: black;">Our method — Async Teleop: Decoupled view rendering and asynchronous updating</span>
+						</p>
+
+
+
+						<!-- <div style="margin-top: 2em; margin-bottom: -1.5em;"> -->
+							<!-- <h3 style="color: black;"> -->
+								<!-- RoboPanoptes is a 9-DoF robot featuring 21 on-body cameras, enabling whole-body dexterity and whole-body vision that allow it to precisely navigate severely occluded cluttered environments and efficiently solve sweeping, stowing and unboxing tasks using its novel manipulation capabilities. -->
+								<!-- Async Teleop: Decoupled view rendering & Async updating. -->
+							<!-- <br> -->
+								<!-- <i>Argos Panoptes</i> is a many-eyed giant in Greek mythology, with "panoptes" meaning "all-seeing". Thus <i>RoboPanoptes</i> is the many-eyed, all-seeing robot. -->
+							<!-- </h3> -->
+						<!-- </div> -->
+
+
+
+
+						<!-- <hr>
+					  </div>
+
+
+
+					  <div>
+					  <h2 style="color: black;">Async Teleop: Decoupled view rendering & Async updating.</h2> -->
+
+
+						<div class="row" style="margin-top: -1em;">
+							<div class="12u$ 12u$(xsmall)" style="text-align: center;">
+								<img src="./images/our_teleop.png" style="width: 70%; height: auto;">
+
+
+						</div>
+
+							<p style="color: grey; flex: 2; margin-bottom: -0.5em;">
+								<!-- <span style="font-weight: bold; color: black;"><i>So, what’s new about our VR teleoperation system?</i></span>  -->
+								<!-- </br> -->
+								We decouple the user's view from the robot's view using a point cloud in the world frame,
+								and
+								<span style="font-weight: bold; color: black;">we render stereo RGB images based on the user's latest head pose</span>
+								(<span style="color: #93c47d;">the green loop</span>).
+								This allows the user's <b>viewpoint</b> to update <b>instantly</b> in response to user's head movements (via rendering), without waiting for the robot's camera to physically match the requested viewpoints.
+								Asynchronously, (<span style="color: #cc0000;">the red loop</span>) we update the robot's head and arm pose using the user's head pose and the teaching arms' joint positions, and update the point cloud using the robot's new observations.
+								The video below demonstrates teleoperation and the corresponding VR view.
+								Check out our quickstart guide for <a href="https://github.com/haoyu-x/vision-in-action/tree/main/async_point_cloud_render"><i>async point cloud render</i></a>.
+							</p>
+						</div>
+
+
+
+						<div class="row 50% uniform" style="width: 100%; display: flex; justify-content: center;">
+							<div style="width: 70%; text-align: center;">
+							  <span class="image fit">
+								<video data-src="videos/teleop_demo.mp4" controls autoplay loop muted playsinline style="width: 100%;">
+								</video>
+							  </span>
+							</div>
+						  </div>
+
+<!--
+
+						  <p style="color: grey; flex: 2;">
+							[TODO: vision pro async demo video.]
+						</p>
+						   -->
+
+						<!-- <p style="color: black; flex: 2; margin-top: 0em;"> -->
+							<!-- <span style="font-weight: bold; color: black;"> -->
+							<!-- Our user study demonstrates that our Async Teleop significantly reduces motion sickness.  -->
+							<!-- In our A/B test, 6 out of 8 participants preferred our system. -->
+							<!-- </span>  -->
+
+						<!-- </p> -->
+
+
+						<hr>
+						</div>
+
+
+
+
+
+					<div>
+
+						<h2 style="color: black;">Policy evaluation</h2>
+
+
+						<p style="color: grey;">
+							We train a Diffusion Policy that predicts bimanual arm actions for manipulation and neck actions that mimic human active perceptual strategies,
+							conditioned on visual and proprioceptive observations.
+						</p>
+
+
+						<p style="color: grey; flex: 2; margin-top: -1em; margin-bottom: 1em;">
+							<span style="font-weight: bold; color: black;">ViA uses a single active head camera (uncut rollouts)</span>
+
+						</br>
+
+						Evaluation results show that ViA (our method) enables the learning of robust visuomotor policies for
+						three complex, multi-stage bimanual manipulation tasks.
+						</p>
+
+
+
+							<div class="row 50% uniform" style="width: 100%;">
+								<div class="2u" style="font-size: 1em; line-height: 1.5em; text-align: center; width: 33.33%">
+									<span class="image fit">
+										<video data-src="videos/cup_via_rollout.mp4" controls autoplay loop muted playsinline style="width: 100%; margin-right: 5%;">
+										</video>
+									</span>
+								</div>
+
+
+								<div class="2u" style="font-size: 1em; line-height: 1.5em; text-align: center; width: 33.33%">
+									<span class="image fit">
+										<video data-src="videos/bag_via_rollout.mp4" controls autoplay loop muted playsinline style="width: 100%; margin-right: 5%;">
+										</video>
+
+
+									</span>
+								</div>
+
+								<div class="2u" style="font-size: 1em; line-height: 1.5em; text-align: center; width: 33.33%">
+									<span class="image fit">
+										<video data-src="videos/pot_via_rollout.mp4" controls autoplay loop muted playsinline style="width: 100%; margin-right: 5%;">
+										</video>
+
+
+									</span>
+
+								</div>
+
+
+
+
+
+
+
+
+
+							</dev>
+
+
+							<dev>
+								<!-- <p style="color: grey;">
+
+
+									<span style="font-weight: bold; color: black;"><i>Cup Task: </i></span>
+									The cup is randomly placed on either the upper or lower tier of shelf A. The robot must 1) find and pick up the cup, 2) hand it over to its left hand, and
+									3) place it on a saucer (randomly placed) hidden beneath shelf B.
+
+
+								</br>
+									<span style="font-weight: bold; color: black;"><i>Bag Task: </i></span>
+									The robot must 1) open a bag,
+									2) peek inside to locate the target object, and 3) take it out.
+
+
+									</br>
+									<span style="font-weight: bold; color: black;"><i>Lime & Pot Task: </i></span>
+
+									The lime may appear on the shelf or on either side of the table.
+									The robot must 1) first find the lime, and decide which arm to use for grasping, and place
+									the lime into a pot, 2) lift the pot using both arms, and 3) align it onto a trivet, guided by the active head camera to ensure precise placement.
+								</p> -->
+
+
+					<p style="color: grey; flex: 2; margin-top: -1em; margin-bottom: 1em;">
+						<span style="font-weight: bold; color: black;">What if we remove the robot neck?</span>
+
+
+					</br>
+
+					We compare ViA with the [Chest & Wrist Cameras] baseline
+					(where the neck is omitted).
+
+					</p>
+							</dev>
+
+
+				<div class="row 50% uniform" style="width: 100%; display: flex; flex-wrap: nowrap; text-align: center; justify-content: center; margin-top: -3em; margin-bottom: -2em;">
+
+					<!-- Group 1: Video 1 & 2 (no gap) -->
+					<div style="width: 16.6%;">
+					  <video data-src="videos/via_comparison_cup.mp4" controls autoplay loop muted playsinline style="width: 120%;">
+					  </video>
+					</div>
+					<div style="width: 16.6%;">
+					  <video data-src="videos/aloha_failure_cup.mp4" controls autoplay loop muted playsinline style="width: 120%;">
+					  </video>
+					</div>
+
+					<!-- Group 2: Video 3 & 4 (no gap within, margin before group) -->
+					<div style="width: 16.6%; margin-left: 2%;">
+					  <video data-src="videos/via_comparison_bag.mp4" controls autoplay loop muted playsinline style="width: 120%;">
+					  </video>
+					</div>
+					<div style="width: 16.6%;">
+					  <video data-src="videos/aloha_failure_bag.mp4" controls autoplay loop muted playsinline style="width: 120%;">
+					  </video>
+					</div>
+
+					<!-- Group 3: Video 5 & 6 (no gap within, margin before group) -->
+					<div style="width: 16.6%; margin-left: 2%;">
+					  <video data-src="videos/via_comparison_pot.mp4" controls autoplay loop muted playsinline style="width: 120%;">
+					  </video>
+					</div>
+					<div style="width: 16.6%;">
+					  <video data-src="videos/aloha_failure_pot.mp4" controls autoplay loop muted playsinline style="width: 120%;">
+					  </video>
+					</div>
+
+				</div>
+
+
+
+
+
+
+					 <div class="row" style="margin-top: 1em;">
+
+
+
+						<p style="color: grey;">
+							<span style="font-weight: bold; color: black;"><i>Findings: </i></span>
+							The [Chest & Wrist Cameras] baseline fails to provide sufficient task-relevant information.
+							For example, the right wrist camera is completely occluded by the upper shelf tier during cup-grasping.
+							In contrast, our method [ViA] enables the robot to dynamically adjust its camera viewpoint and gather more informative visual input,
+							improving task performance.
+
+							<!-- This limitation becomes problematic in visually occluded environments, such as retrieving objects from a deformable bag.							 -->
+
+						</p>
+						<div class="12u$ 12u$(xsmall)" style="text-align: center; margin-top: -2em">
+							<img src="./images/cam_visualization.png" style="width: 60%; height: auto;">
+						</div>
+					</div>
+
+					<dev>
+							<p style="color: grey; flex: 2; margin-top: 0em;">
+								<span style="font-weight: bold; color: black;">Do reductant wrist cameras help?</span>
+
+
+							</br>
+								Compared to [ViA], the [Active Head & Wrist Cameras] setup includes additional wrist views as visual input.
+								<!-- Although the teleoperator does not directly use these views,  -->
+								This comparison evaluates whether they provide additional useful information for policy learning.
+
+							</p>
+
+								<div class="row" style="margin-top: -1em; margin-bottom: 0em;">
+									<div class="12u$ 12u$(xsmall)" style="text-align: center;">
+										<img src="./images/performance_cam.png" style="width: 75%; height: auto;">
+									</div>
+
+					<p style="color: grey;">
+
+
+						<span style="font-weight: bold; color: black;"><i>Findings: </i></span>
+						[ViA] consistently outperforms the alternative camera setups.
+						Surprisingly, augmenting [ViA] with additional wrist camera observations ([Active Head & Wrist Cameras])
+						does not improve performance.
+						</br>
+
+						<!-- We hypothesize the reason for this outcome:
+						The visual input from the head camera alone is already task-complete, adding wrist cameras increases input dimensionality without necessarily contributing task-relevant information.
+						Instead, the additional views may introduce noisy observations and can hinder learning in a low-data regime like ours. -->
+
+							<!-- This limitation becomes problematic in visually occluded environments, such as retrieving objects from a deformable bag.							 -->
+
+						</p>
+
+
+
+
+						<p style="color: grey; flex: 2; margin-top: 0em; margin-bottom: -0.1em;">
+										<span style="font-weight: bold; color: black;">Visual representation matters</span>
+						</p>
+						<div style="display: flex; align-items: flex-start; gap: 1.5em;">
+						<p style="color: grey; flex: 2;">
+								Intuitively, we expected that the world-frame point cloud could offer a robust spatial representation for the active camera setup.
+								However, in the cup task, the [DP3] baseline often fails by directing the arm toward the empty section of the shelf, and failing to "find" the cup location.
+								We hypothesize that this failure stems from [DP3] being trained from scratch, resulting in a lack of visual priors.
+							</br>
+							  <!-- </p> -->
+
+
+
+								<div style="flex: 1;">
+									<video data-src="videos/dp3_failure_cup.mp4" controls autoplay loop muted playsinline style="width: 60%; height: auto; margin-top: 0.5em;">
+									  </video>
+									</div>
+								</div>
+
+
+
+
+								<div class="row" style="margin-top: -1.5em; margin-bottom: 0em;">
+									<div class="12u$ 12u$(xsmall)" style="text-align: center;">
+								<img src="./images/performance_visual_rep.png" style="width: 75%; height: auto;">
+							</div>
+
+
+
+							<p style="color: grey;">
+
+
+								<span style="font-weight: bold; color: black;"><i>Findings: </i></span>
+								We found that <span style="font-weight: bold; color: black;">the RGB policy performs reasonably well under active camera setups.</span>
+								<!-- Our method—leveraging a pretrained DINOv2 ViT representation—achieves the highest final-stage success rate across all three tasks.  -->
+								Compared to the two baselines, [ViA] benefits from stronger semantic visual understanding enabled by the DINOv2 backbone. This allows
+								the policy to actively <span style="font-weight: bold; color: black;"><i>find</i></span> the object first before initiating arm actions.
+
+
+
+
+
+
+
+
+								</p>
+
+							</div>
+
+
+
+
+						<div class="row 50% uniform" style="width: 100%; margin-bottom: -3em; margin-top: -3em">
+							<div class="2u" style="font-size: 1em; line-height: 1.5em; text-align: center; width: 20%">
+								<span class="image fit">
+									<video data-src="videos/pot_find_1.mp4" controls autoplay loop muted playsinline style="width: 100%; margin-right: 5%;">
+									</video>
+								</span>
+							</div>
+
+
+							<div class="2u" style="font-size: 1em; line-height: 1.5em; text-align: center; width: 20%">
+								<span class="image fit">
+									<video data-src="videos/pot_find_2.mp4" controls autoplay loop muted playsinline style="width: 100%; margin-right: 5%;">
+									</video>
+
+
+								</span>
+							</div>
+
+							<div class="2u" style="font-size: 1em; line-height: 1.5em; text-align: center; width: 20%">
+								<span class="image fit">
+									<video data-src="videos/pot_find_3.mp4" controls autoplay loop muted playsinline style="width: 100%; margin-right: 5%;">
+									</video>
+
+
+								</span>
+							</div>
+
+							<div class="2u" style="font-size: 1em; line-height: 1.5em; text-align: center; width: 20%">
+								<span class="image fit">
+									<video data-src="videos/pot_find_4.mp4" controls autoplay loop muted playsinline style="width: 100%; margin-right: 5%;">
+									</video>
+
+
+								</span>
+							</div>
+
+
+							<div class="2u" style="font-size: 1em; line-height: 1.5em; text-align: center; width: 20%">
+								<span class="image fit">
+									<video data-src="videos/pot_find_5.mp4" controls autoplay loop muted playsinline style="width: 100%; margin-right: 5%;">
+									</video>
+
+
+								</span>
+							</div>
+
+						<p style="color: grey;">
+
+
+
+
+								In the videos above, the lime is randomly placed and often not visible at first.
+								[ViA] actively searches for it before choosing the appropriate arm to use for grasping.
+								In the fifth video, the lime was initially occluded by the robot gripper,
+								but the robot moved it aside and successfully located the lime (though it failed to grasp it).
+
+
+
+
+
+
+
+
+
+
+								</p>
+
+							</div>
+						</dev>
+
+
+					</div>
+
+
+
+
+					<div>
+						<hr>
+						<h2 style="color: black;">
+							FAQ
+						</h2>
+
+							<p style="color: grey;">
+								<span style="font-weight: bold; color: black;"><i>1) Why not just use a 360° camera? </i></span>
+																<br>
+
+								While a wider field of view helps robot perception,
+								a 360° camera alone doesn't resolve the problem of visual occlusion.
+								For example, in the shelf task, mounting a fixed 360° camera on the robot head (without a neck) still fails to reveal objects hidden in cluttered scenes.
+								To overcome this, the camera must actively move and adjust its pose to gain better viewpoints.
+								<br>
+
+								<span style="font-weight: bold; color: black;"><i>2) Why use a 6-DoF neck? </i></span>
+														<br>
+
+								Human active perception relies on coordinated movements of both the torso and neck to adjust head pose (not just the neck!).
+
+								On the hardware side, simply mounting a 2-DoF robot neck on a static torso offers only limited flexibility and cannot replicate the full range of human motion.
+
+								We employ a simple yet effective solution: using an off-the-shelf robot arm as the robot neck.
+
+								This 6-DoF neck design allows the robot to mimic whole-upper-body motions from humans while avoiding hardware complexity.
+
+
+																<br>
+
+								<span style="font-weight: bold; color: black;"><i>3) Why add additional teaching arms (GELLO)? </i></span>
+								<br>
+
+								In our bag task, for example, demonstrators must significantly bend their torso to peek inside the bag, while simultaneously coordinating both arms to retrieve the object.
+
+								Empirically, we found that holding something in the hand helps users better coordinate their upper-body motions.
+
+								Alternatively, one can use the Vision Pro's hand tracking to control the robot arm via inverse kinematics.
+
+								<br>
+								<span style="font-weight: bold; color: black;"><i>4) What are the limitations of point cloud rendering? </i></span>
+																<br>
+
+								One challenge is sensor noise, even with the relatively high-quality depth maps provided by the iPhone.
+								Additionally, our method's reliance on single-frame depth results in incomplete 3D scene reconstructions.
+								<!-- When converting depth to a point cloud, missing or sparse areas are common.  -->
+								In the future, integrating 3D/4D models (e.g., dynamic Gaussian Splatting) could improve the framework.
+
+
+
+							</p>
+
+
+
+					</div>
+
+
+
+					<div>
+							<hr>
+							<h2 style="color: black;">
+								One more thing
+
+							</h2>
+
+
+							<p style="color: grey;">
+							We found that our bimanual hardware setup can be easily mounted onto a mobile base.
+							To support future research on active perception for mobile manipulation, we open source a simple mobile <a href="https://github.com/haoyu-x/vision-in-action/tree/main/hardware"><i>hardware design</i></a> using the TidyBot++ mobile base.
+							</p>
+
+
+						<div class="row 50% uniform" style="width: 100%; margin-bottom: 0em;">
+							<div class="2u" style="font-size: 1em; line-height: 1.5em; text-align: center; width: 50%">
+								<span class="image fit">
+									<video data-src="videos/mobile_demo.mp4" controls autoplay loop muted playsinline style="width: 100%; margin-right: 5%;">
+									</video>
+								</span>
+							</div>
+
+							<div class="2u" style="font-size: 1em; line-height: 1.5em; text-align: center; width: 50%">
+								<span class="image fit">
+									<video data-src="videos/cad.mp4" controls autoplay loop muted playsinline style="width: 50%; margin-right: 5%;">
+									</video>
+								</span>
+							</div>
+
+						</dev>
+
+					</div>
+
+					<div>
+						<hr>
+						<h2 style="color: black;">
+							Acknowledgments
+						</h2>
+						<p style="color: grey;">
+							This work was supported in part by the Toyota Research Institute, NSF awards #2143601, #2037101, and #2132519, the Sloan Foundation, Stanford Human-Centered AI Institute, and Intrinsic.
+							The views and conclusions contained herein are those of the authors and should not be interpreted as necessarily representing the official policies, either expressed or implied, of the sponsors.
+							<br>
+							We would like to thank  ARX for the ARX robot hardware.
+
+							We thank Yihuai Gao at Stanford for his help on the ARX robot arm controller SDK.
+
+							We thank Ge Yang at MIT and Xuxin Cheng at UCSD for their help and discussion of VR.
+
+
+							We thank Max Du, Haochen Shi, Han Zhang, Austin Patel, Zeyi Liu, Huy Ha, Mengda Xu,
+
+							Yunfan Jiang,
+
+
+							Ken Wang, and Yanjie Ze for their helpful discussions.
+
+							We sincerely thank all the volunteers who participated in and supported our user study.
+
+
+						</p>
+						<hr>
+					</div>
+
+
+
+
+					<div>
+						<h2>BibTeX</h2>
+						<pre><code>@article{xiong2025via,
+  title = {Vision in Action: Learning Active Perception from Human Demonstrations},
+  author = {Haoyu Xiong and Xiaomeng Xu and Jimmy Wu and Yifan Hou and Jeannette Bohg and Shuran Song},
+  journal = {arXiv preprint arXiv:2506.15666},
+  year = {2025}
+}</code></pre>
+					</div>
